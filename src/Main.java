@@ -12,6 +12,16 @@ import java.awt.geom.AffineTransform;
 public class Main extends Application {
     private ResizableCanvas canvas;
     private Map map;
+    private Display.Scene scene;
+
+    public int width;
+    public int height;
+
+    public Main(String title, int width, int height) {
+        this.width = width;
+        this.height = height;
+        this.scene = new Display.Scene(title, width, height);
+    }
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -21,8 +31,7 @@ public class Main extends Application {
         mainPane.setCenter(canvas);
         FXGraphics2D g2d = new FXGraphics2D(canvas.getGraphicsContext2D());
 
-        map = new Map("Dungeon.tsx.json");
-
+        map = new Map("Dungeon2.json");
 
 
         stage.setScene(new Scene(mainPane));

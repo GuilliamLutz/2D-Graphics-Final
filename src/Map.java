@@ -1,3 +1,4 @@
+import javafx.scene.canvas.Canvas;
 import org.jfree.fx.FXGraphics2D;
 import org.jfree.fx.ResizableCanvas;
 
@@ -65,7 +66,7 @@ public class Map {
             JsonObject object = (JsonObject)value;
 
             try {
-                BufferedImage image = ImageIO.read(getClass().getResourceAsStream(object.getString("source")));
+                BufferedImage image = ImageIO.read(getClass().getResourceAsStream(object.getString("image")));
 
 
 
@@ -73,19 +74,19 @@ public class Map {
                         object.getString("name"),
                         object.getInt("columns"),
                         object.getInt("firstgid"),
-                        object.getInt("height"),
-                        object.getInt("width"),
+                        object.getInt("imageheight"),
+                        object.getInt("imagewidth"),
                         object.getInt("tilecount"),
                         object.getInt("tileheight"),
                         object.getInt("tilewidth"),
                         image);
 
-
-                    for(int y = 0; y < set.getImageHeight() / tileHeight; y += 1){
+                assureSize(tiles, set.getFirstGid() + set.getTileCount());
+            for(int y = 0; y < set.getImageHeight() / tileHeight; y += 1){
                         for(int x = 0; x < set.getImageWidth()/ tileWidth; x += 1){
-                        BufferedImage subimage = image.getSubimage(x * tileWidth,y * tileHeight,tileWidth, tileHeight);
+                        BufferedImage subImage = image.getSubimage(x * tileWidth,y * tileHeight,tileWidth, tileHeight);
                         int index = (set.getFirstGid() + (y * (set.getImageWidth()/tileWidth)) + x);
-                        tiles.add(index, subimage);
+                        tiles.add(index, subImage);
                     }
                 }
             } catch (IOException e) {
@@ -97,22 +98,27 @@ public class Map {
 
     }
 
-    public void drawMap(FXGraphics2D graphics, ResizableCanvas canvas){
+    private void assureSize(ArrayList<BufferedImage> tiles, int count) {
+        while (tiles.size()<count){
+            tiles.add(null);
+        }
+    }
+
+    public void drawMap(FXGraphics2D graphics, Canvas canvas){
         graphics.setTransform(new AffineTransform());
-        graphics.setBackground(Color.white);
-        graphics.clearRect(0, 0, (int)canvas.getWidth(), (int)canvas.getHeight());
-//        int i = 0;
-//        for(Layer layer: layers){
-//            for(int y = 0; y < layer.getHeight(); y += 1) {
-//                for (int x = 0; x < layer.getWidth(); x += 1) {
-//                    graphics.drawImage(tiles.get(i), x * tileWidth, y * tileHeight, null);
-//                    if(i <= tiles.size()) i++;
-//                }
-//            }
-//
-//        }
+        for(Layer layer : layers){
 
-        graphics.drawImage(tiles.get(64), 0, 0, null);
+            int i = 0;
 
+            for(int y = 0; y < layer.getHeight(); y ++) {
+
+                for (int x = 0; x < layer.getWidth(); x ++) {
+
+                    Integer tileId = layer.getData().get(i);
+                    graphics.drawImage(tiles.get(tileId), x * tileWidth, y * tileHeight, null);
+                    i++;
+                }
+            }
+        }
     }
 }
