@@ -1,6 +1,7 @@
-import GameObjects.GameObject;
+import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
@@ -14,11 +15,15 @@ import java.awt.*;
 import java.awt.geom.AffineTransform;
 
 public class Main extends Application {
-    private ResizableCanvas canvas;
+    private static ResizableCanvas canvas;
     private Map map;
 
     public int width;
     public int height;
+
+    public static Canvas getCanvas(){
+        return canvas;
+    }
 
     /*public Main(String title, int width, int height) {
         this.width = width;
@@ -32,6 +37,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        BorderPane gamePane = new BorderPane();
+
+        canvas = new ResizableCanvas(g -> draw(g), gamePane);
+
+
         Button start = new Button("Start Game");
         start.setFont(Font.font("Kalam", 50));
         start.setTextFill(javafx.scene.paint.Paint.valueOf("White"));
@@ -67,9 +77,7 @@ public class Main extends Application {
 
         stage.setScene(new Scene(menuPane));
 
-        BorderPane gamePane = new BorderPane();
 
-        canvas = new ResizableCanvas(g -> draw(g), gamePane);
 
 
         gamePane.setCenter(canvas);
@@ -82,6 +90,18 @@ public class Main extends Application {
         stage.setTitle("Game");
         stage.show();
         draw(g2d);
+
+        new AnimationTimer() {
+            long last = -1;
+            @Override
+            public void handle(long now) {
+                if(last == -1)
+                    last = now;
+//                update((now - last) / 1000000000.0);
+                last = now;
+                draw(g2d);
+            }
+        }.start();
     }
 
     public void draw(FXGraphics2D graphics){
@@ -91,7 +111,7 @@ public class Main extends Application {
 
         map.drawMap(graphics, canvas);
 
-        GameObjects.Character main = new GameObjects.Character();
-        main.draw(graphics);
+
+        Character.getInstance().draw(graphics);
     }
 }

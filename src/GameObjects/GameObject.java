@@ -11,8 +11,8 @@ import java.io.IOException;
 
 public abstract class GameObject {
 
-    private BufferedImage image;
-    private Point2D offset;
+    protected BufferedImage image;
+    protected Point2D offset;
     private double scale;
 
     public GameObject(String imageFile, Point2D offset, double scale) {
