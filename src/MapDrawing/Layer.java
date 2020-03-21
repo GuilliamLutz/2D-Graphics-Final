@@ -1,3 +1,5 @@
+package MapDrawing;
+
 import java.util.ArrayList;
 
 public class Layer {

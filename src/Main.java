@@ -1,3 +1,4 @@
+import GameObjects.GameObject;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -90,5 +91,7 @@ public class Main extends Application {
 
         map.drawMap(graphics, canvas);
 
+        GameObjects.Character main = new GameObjects.Character();
+        main.draw(graphics);
     }
 }

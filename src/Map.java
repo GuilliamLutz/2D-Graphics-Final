@@ -1,3 +1,5 @@
+import MapDrawing.Layer;
+import MapDrawing.Tileset;
 import javafx.scene.canvas.Canvas;
 import org.jfree.fx.FXGraphics2D;
 import org.jfree.fx.ResizableCanvas;
