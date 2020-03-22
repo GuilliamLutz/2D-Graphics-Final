@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db795212-185a-4c72-9bd0-ebc7f15957b6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javax.json.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/2D Graphics Final/Dungeon2.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/2D Graphics Final/Dungeon_Tileset.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/2D Graphics Final/GameObjects/Character.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/2D Graphics Final/GameObjects/GameObject.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/2D Graphics Final/META-INF/2D Graphics Final.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/2D Graphics Final/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/2D Graphics Final/Map.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/2D Graphics Final/MapDrawing/Layer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/2D Graphics Final/MapDrawing/Tileset.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/2D Graphics Final/dungeonAchtergrond.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/2D Graphics Final/warrior.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Character.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Inputhandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameObjects/Character.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameObjects/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameObjects/GameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -311,7 +294,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1584800959067" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1584836266015" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Proftaak 1.3/Simulator/FestivalPlannerSimulator" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -367,7 +350,7 @@
       <workItem from="1584350884922" duration="253000" />
       <workItem from="1584363315149" duration="644000" />
       <workItem from="1584796865565" duration="199000" />
-      <workItem from="1584797124091" duration="3818000" />
+      <workItem from="1584797124091" duration="4454000" />
     </task>
     <task id="LOCAL-00001" summary="Project made + added map">
       <created>1583416675769</created>
@@ -397,14 +380,21 @@
       <option name="project" value="LOCAL" />
       <updated>1584798482525</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Trying to implement moving logic">
+      <created>1584800991237</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1584800991237</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37653000" />
+    <option name="totallyTimeSpent" value="38289000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1624161" />
@@ -483,7 +473,8 @@
     <MESSAGE value="Loading in of Json map and a tr to draw the images" />
     <MESSAGE value="Startmenu added" />
     <MESSAGE value="Added a Gameobject classe and made a start of loading in a character" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a Gameobject classe and made a start of loading in a character" />
+    <MESSAGE value="Trying to implement moving logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Trying to implement moving logic" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/drawMap.java" />
