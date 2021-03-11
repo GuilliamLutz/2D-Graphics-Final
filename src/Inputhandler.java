@@ -56,10 +56,12 @@ public class Inputhandler {
 
     private synchronized void keyPressed(KeyEvent e) {
         this.heldDownKeys.add(e.getCode());
+        System.out.println("Keypressed");
     }
 
     private synchronized void keyReleased(KeyEvent e) {
         this.heldDownKeys.remove(e.getCode());
+        System.out.println("Key released");
     }
 
     private synchronized void mouseMoved(MouseEvent e) {

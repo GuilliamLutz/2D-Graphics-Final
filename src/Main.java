@@ -21,7 +21,7 @@ public class Main extends Application {
     public int width;
     public int height;
 
-    public static Canvas getCanvas(){
+    public static ResizableCanvas getCanvas(){
         return canvas;
     }
 
@@ -40,6 +40,7 @@ public class Main extends Application {
         BorderPane gamePane = new BorderPane();
 
         canvas = new ResizableCanvas(g -> draw(g), gamePane);
+        canvas.setFocusTraversable(true);
 
 
         Button start = new Button("Start Game");
@@ -92,16 +93,21 @@ public class Main extends Application {
         draw(g2d);
 
         new AnimationTimer() {
-            long last = -1;
+            long last = (long)-1.0;
             @Override
             public void handle(long now) {
                 if(last == -1)
                     last = now;
-//                update((now - last) / 1000000000.0);
+                update((now - last) / (long)10000000.0);
+                System.out.println((now - last) / (long)10000000.0);
                 last = now;
                 draw(g2d);
             }
         }.start();
+    }
+
+    private void update(long v) {
+       Character.getInstance().update(v);
     }
 
     public void draw(FXGraphics2D graphics){
@@ -114,4 +120,5 @@ public class Main extends Application {
 
         Character.getInstance().draw(graphics);
     }
+
 }

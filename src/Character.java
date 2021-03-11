@@ -15,7 +15,7 @@ public class Character extends GameObject {
     }
 
     private Character() {
-        super("/warrior.png", new Point2D(0,0), -1);
+        super("/warrior.png", new Point2D(300,300), -1);
         loadCorrectSprite();
     }
 
@@ -24,9 +24,27 @@ public class Character extends GameObject {
     }
 
     public void update(long deltatimer){
-        for (KeyCode key :Inputhandler.getInstance().getHeldDownKeys()) {
-            switch (key){
-                case W: this.offset = new Point2D(offset.getX(), offset.getY()-1*deltatimer);
+        for (KeyCode key :Inputhandler.getInstance().getKeys()) {
+            System.out.println(key);
+            if ( key == KeyCode.W){
+                this.offset = new Point2D(offset.getX(), offset.getY()- deltatimer);
+                System.out.println(this.offset.getX()+ " " + this.offset.getY());
+                System.out.println(deltatimer);
+            }
+            else if (key == KeyCode.S){
+                this.offset = new Point2D(offset.getX(), offset.getY()+ deltatimer);
+                System.out.println(this.offset.getX() + " " + this.offset.getY());
+                System.out.println(deltatimer);
+            }
+            else if (key == KeyCode.D){
+                this.offset = new Point2D(offset.getX() + deltatimer, offset.getY());
+                System.out.println(this.offset.getX() + " " + this.offset.getY());
+                System.out.println(deltatimer);
+            }
+            else if (key == KeyCode.A){
+                this.offset = new Point2D(offset.getX() - deltatimer, offset.getY());
+                System.out.println(this.offset.getX() + " " +  this.offset.getY());
+                System.out.println(deltatimer);
             }
         }
 
